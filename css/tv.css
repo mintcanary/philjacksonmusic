@@ -1,7 +1,5 @@
 @charset "UTF-8";
 
-@import url(http://fonts.googleapis.com/css?family=Lobster);
-
 /* CSS Document */
 
 a,
@@ -252,7 +250,7 @@ footer .footer .credit:hover {
 	}
 }
 
-@media (max-width: 767px) { 
+@media (max-width: 767px) {
 	section,
 	header,
 	.logo,
@@ -267,12 +265,12 @@ footer .footer .credit:hover {
 		height:auto;
 		min-height:0;
 	}
-	
+
 	body {
 		padding:3px;
 		min-height:480px;
 	}
-	
+
 	h1 {
 	  font-size:52px;
 		padding-top:8px;
@@ -280,7 +278,7 @@ footer .footer .credit:hover {
 	.logo p {
 		letter-spacing:normal;
 	}
-	
+
 	.dial,
 	.volume,
 	.dial:before,
@@ -289,7 +287,7 @@ footer .footer .credit:hover {
 	.choose {
 		display:none;
 	}
-	
+
 	footer .footer .footer-content .connect {
 		float: none;
 		background-image: none;
