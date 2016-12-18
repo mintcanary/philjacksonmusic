@@ -17,9 +17,9 @@
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    
+
     <link rel="image_src" href="http://www.philjacksonmusic.com/screenshot.jpg" />
-    
+
     <script src="http://www.google.com/jsapi"></script>
   	<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
   </head>
@@ -33,38 +33,24 @@
           <p>Singer/Songwriter &middot; Rock N Roll Performer</p>
         </div>
       </header>
-      
+
     	<img class="choose" src="img/choose.png" alt="Choose your channel" />
-      
+
       <ul class="dial">
-        <li class="rocktab"><a href="#rock" onclick="load('cBh-WqlQ0JU');" data-toggle="tab">Rock n Roll</a></li>
-        <li class="solotab"><a href="#solo" onclick="load('qQ8AdQsHHcI');" data-toggle="tab">Solo</a></li>
+        <li class="rocktab"><a href="#rock" onclick="player.loadVideoById('cBh-WqlQ0JU');" data-toggle="tab">Rock n Roll</a></li>
+        <li class="solotab"><a href="#solo" onclick="player.loadVideoById('qQ8AdQsHHcI');" data-toggle="tab">Solo</a></li>
       </ul>
-      
+
       <ul class="volume">
-        <li><a onclick="muteVideo();" href="javascript:void(0);" title="Sound Off">Mute</a></li>
-        <li><a onclick="unMuteVideo();" href="javascript:void(0);" title="Sound On">Unmute</a></li>
+        <li><a onclick="player.mute(); $('body').addClass('mute')" href="javascript:void(0);" title="Sound Off">Mute</a></li>
+        <li><a onclick="player.unMute(); $('body').removeClass('mute')" href="javascript:void(0);" title="Sound On">Unmute</a></li>
       </ul>
-    
+
       <div class="video">
-        <div id="video-holder">
-          <p>You will need Flash 8 or better to view this content.</p>
-        </div>
-			<!--<div class="tab-content">
-          <div class="tab-pane active" id="rock">
-            <div id="rock-video">
-              vid1
-            </div>
-          </div>
-          <div class="tab-pane" id="solo">
-            <div id="solo-video">
-              vid2
-            </div>
-          </div>
-        </div>-->
+        <div id="player"></div>
       </div>
     </section>
- 				 
+
     <footer>
       <div class="footer">
         <div class="footer-content">
@@ -81,19 +67,47 @@
           <a id="tuition" class="card" href="https://sites.google.com/site/pianotuitionandperformance/">Piano Tuition Available!</a>
           <a class="credit" title="web design" href="http://www.mintcanary.com/">
             Crafted by <br />Mint Canary
-          </a>      
+          </a>
         </div>
       </div>
     </footer>
 
-    <!-- Le javascript
+    <!-- javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
-    
+
     <script>
-		  $('.rocktab a[data-toggle="tab"]').on('show', function (e) {
+      // Video
+      // This code loads the IFrame Player API code asynchronously.
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+      // This function creates an <iframe> (and YouTube player) after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '340',
+          width: '606',
+          videoId: 'qQ8AdQsHHcI',
+          playerVars: { 'autoplay': 1, 'controls': 0, 'rel': 0  },
+          events: {
+            'onReady': onPlayerReady,
+          }
+        });
+      }
+
+      // The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+
+      // Controls
+      $('.rocktab a[data-toggle="tab"]').on('show', function (e) {
 				$("body.solo").removeClass("solo").addClass("rock");
 				$("body").addClass("channel");
 		  })
@@ -101,44 +115,8 @@
 				$("body.rock").removeClass("rock").addClass("solo");
 				$("body").addClass("channel");
 		  });
-			
-			//video
-			google.load("swfobject", "2.1");
-			function onYouTubePlayerReady(playerId) {
-					ytplayer = document.getElementById("myvideo");
-					ytplayer.loadVideoById('qQ8AdQsHHcI');
-					ytplayer.playVideo();
-			}
-			var params = {
-					allowScriptAccess: "always"
-			};
-			var atts = {
-					id: "myvideo"
-			};
-			swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1&playerapiid=ytplayer",
-			"video-holder", "606", "340", "8", null, null, params, atts);
-			
-			
-			function load(id) {
-					if (ytplayer) {
-							ytplayer.loadVideoById(id);
-					}
-			}
-			
-			function muteVideo() {
-				if(ytplayer) {
-					ytplayer.mute();
-					$("body").addClass("mute");
-				}
-			}
-			
-			function unMuteVideo() {
-				if(ytplayer) {
-					ytplayer.unMute();
-					$("body").removeClass("mute");
-				}
-			}
-		</script>
-    
+
+    </script>
+
   </body>
 </html>
