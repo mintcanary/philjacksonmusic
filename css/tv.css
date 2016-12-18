@@ -1,0 +1,321 @@
+@charset "UTF-8";
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+
+/* CSS Document */
+
+a,
+a:hover {
+	color:#FFF;
+}
+
+body,
+html{
+	height: 100%;
+	color:#FFF;
+}
+
+html {
+	background-image: url(../img/tile.jpg);
+	background-repeat: repeat;
+	background-position: center top;
+	overflow-x: hidden;
+}
+
+body {
+	background: -moz-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%, rgba(0,0,0,0.7) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(0,0,0,0)), color-stop(100%,rgba(0,0,0,0.7))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(0,0,0,0) 0%,rgba(0,0,0,0.7) 100%); /* W3C */
+	min-height: 655px;
+}
+
+section {
+	height: 64%;
+	min-height:649px;
+	background-image: url(../img/tv-top.png);
+	background-repeat: no-repeat;
+	background-position: center bottom;
+	position:relative;
+}
+header {
+  height:27%;
+	position:relative;
+}
+.logo {
+	height:84px;
+	width:312px;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-42px;
+	margin-left:-156px;
+	text-align:center;
+	text-shadow: 1px 1px 1px #000000;
+  filter: dropshadow(color=#000000, offx=1, offy=1);
+}
+h1 {
+	font-family: Lobster, "Brush Script MT", cursive;
+	font-weight:400;
+	font-size:58px;
+	text-shadow: 2px 2px 2px #000000;
+  filter: dropshadow(color=#000000, offx=2, offy=2);
+	margin-bottom:15px;
+}
+.logo p {
+	font-size:14px;
+	font-style:italic;
+	letter-spacing:1px;
+}
+
+.video {
+	position:absolute;
+	bottom:3px;
+	left:50%;
+	width:606px;
+	height:340px;
+	margin-left:-395px;
+}
+
+.choose {
+	position:absolute;
+	left:50%;
+	bottom:141px;
+	margin-left:255px;
+}
+.channel .choose {
+	display:none;
+}
+
+.dial {
+	position:absolute;
+	left:50%;
+	bottom:48px;
+	width:100px;
+	height:100px;
+	margin-left:352px;
+  -webkit-transform: rotate(-27deg);/* Safari */
+	-moz-transform: rotate(-27deg);/* Firefox */
+	-ms-transform: rotate(-27deg);/* IE */
+	-o-transform: rotate(-27deg);/* Opera */
+}
+.dial li {
+	display:block;
+}
+.dial li a {
+	display:block;
+	width:100px;
+	height:50px;
+	text-indent:-999px;
+	overflow:hidden;
+	outline: none;
+}
+.dial:before {
+	content: '';
+	position:absolute;
+	width: 100px;
+	height: 100px;
+	background-image: url(../img/dial.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-transform: rotate(27deg);/* Safari */
+	-moz-transform: rotate(27deg);/* Firefox */
+	-ms-transform: rotate(27deg);/* IE */
+	-o-transform: rotate(27deg);/* Opera */
+	z-index: -1;
+	-moz-transition: all 1s ease;/* Firefox */
+	-webkit-transition: all 1s ease;/* WebKit */
+	-o-transition: all 1s ease;/* Opera */
+	transition: all 1s ease;/* Standard */
+}
+body.solo .dial:before {
+	-webkit-transform: rotate(207deg);/* Safari */
+	-moz-transform: rotate(207deg);/* Firefox */
+	-ms-transform: rotate(207deg);/* IE */
+	-o-transform: rotate(207deg);/* Opera */
+}
+
+.volume {
+	position:absolute;
+	left:50%;
+	bottom:-70px;
+	width:100px;
+	height:100px;
+	margin-left:352px;
+	z-index:0;
+}
+.volume li {
+	display:block;
+	float:left;
+}
+.volume li a {
+	display:block;
+	width:50px;
+	height:100px;
+	text-indent:-999px;
+	overflow:hidden;
+	outline: none;
+}
+.volume:before {
+	content: '';
+	position:absolute;
+	width: 100px;
+	height: 100px;
+	background-image: url(../img/volume.png);
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index: -1;
+	-moz-transition: all 1s ease;/* Firefox */
+	-webkit-transition: all 1s ease;/* WebKit */
+	-o-transition: all 1s ease;/* Opera */
+	transition: all 1s ease;/* Standard */
+	left:0;
+}
+body.mute .volume:before {
+	-webkit-transform: rotate(-260deg);/* Safari */
+	-moz-transform: rotate(-260deg);/* Firefox */
+	-ms-transform: rotate(-260deg);/* IE */
+	-o-transform: rotate(-260deg);/* Opera */
+}
+
+footer {
+	height:36%;
+	background-image: url(../img/surface.png);
+	background-repeat: repeat-x;
+	background-position: center top;
+	background-size: auto 100%;
+	min-height:360px;
+}
+
+footer .footer {
+	height:216px;
+	background-image: url(../img/tv-bot.png);
+	background-repeat: no-repeat;
+	background-position: center top;
+}
+footer .footer .footer-content {
+	width:960px;
+	position:absolute;
+	left:50%;
+	margin-left:-480px;
+	margin-top:187px;
+}
+footer .footer .footer-content .connect {
+	float: left;
+	background-image: url(../img/connect.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	height:43px;
+	padding:20px 0px 20px 110px;
+}
+footer .footer .footer-content .connect li {
+	display:block;
+	float:left;
+}
+footer .footer .footer-content .card {
+	display: block;
+}
+footer .footer .credit {
+	display:block;
+	float: right;
+	color: #000;
+	font-weight: 100;
+	font-size: 13px;
+	line-height: 13px;
+	letter-spacing: 1px;
+	background-image: url(../img/mc.png);
+	background-repeat: no-repeat;
+	background-position: right center;
+	padding:10px 40px 10px 10px;
+	margin-top:15px;
+	margin-top:115px; /*card*/
+}
+footer .footer .credit:hover {
+	text-decoration:none;
+	font-weight:normal;
+}
+
+@media (min-width: 768px) {
+	footer .footer .footer-content .card {
+		width: 326px;
+		height: 129px;
+		text-indent: -9999px;
+		overflow: hidden;
+		position:absolute;
+		right:-23px;
+		top:-21px;
+	}
+	footer .footer .footer-content .card#tuition {
+		background-image: url(../img/card.png);
+	}
+}
+
+@media (max-width: 767px) { 
+	section,
+	header,
+	.logo,
+	.video,
+	footer,
+	footer .footer,
+	footer .footer .footer-content {
+		position:static;
+		margin:0;
+		background-image:none;
+		width:100%;
+		height:auto;
+		min-height:0;
+	}
+	
+	body {
+		padding:3px;
+		min-height:480px;
+	}
+	
+	h1 {
+	  font-size:52px;
+		padding-top:8px;
+  }
+	.logo p {
+		letter-spacing:normal;
+	}
+	
+	.dial,
+	.volume,
+	.dial:before,
+	.volume:before,
+	.video,
+	.choose {
+		display:none;
+	}
+	
+	footer .footer .footer-content .connect {
+		float: none;
+		background-image: none;
+		height:auto;
+		padding:0;
+		margin:0;
+	}
+	footer .footer .footer-content .connect li {
+		float:none;
+		text-align:center;
+	}
+	footer .footer .footer-content .card {
+		text-align:center;
+		margin-top:15px;
+	}
+	footer .footer .credit {
+		float: none;
+		color: #FFF;
+		background-image: none;
+		padding:0;
+		text-align:center;
+		opacity:0.5;
+		font-size:12px;
+		margin-top: 15px;
+	}
+	footer .footer .credit br {
+		display:none;
+	}
+}

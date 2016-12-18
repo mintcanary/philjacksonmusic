@@ -1,0 +1,8 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+	background-image: url(../img/tile.jpg);
+	background-repeat: repeat;
+	background-position: center top;
+}

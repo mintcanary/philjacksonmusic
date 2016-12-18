@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Phil Jackson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self penned pop/rock/folk/call it whatever you like style songs mostly played on guitar and piano. I also perform classic Rock n Roll in the style of Jerry Lee Lewis and play a variety of other standards.">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/tv.css" />
+    <!--[if lt IE 10]>
+      <link rel="stylesheet" type="text/css" href="css/ie9.css" />
+    <![endif]-->
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    
+    <link rel="image_src" href="http://www.philjacksonmusic.com/screenshot.jpg" />
+    
+    <script src="http://www.google.com/jsapi"></script>
+  	<script src="http://ajax.googleapis.com/ajax/libs/swfobject/2.1/swfobject.js"></script>
+  </head>
+
+  <body class="solo">
+
+    <section>
+      <header>
+        <div class="logo">
+          <h1>Phil Jackson</h1>
+          <p>Singer/Songwriter &middot; Rock N Roll Performer</p>
+        </div>
+      </header>
+      
+    	<img class="choose" src="img/choose.png" alt="Choose your channel" />
+      
+      <ul class="dial">
+        <li class="rocktab"><a href="#rock" onclick="load('cBh-WqlQ0JU');" data-toggle="tab">Rock n Roll</a></li>
+        <li class="solotab"><a href="#solo" onclick="load('qQ8AdQsHHcI');" data-toggle="tab">Solo</a></li>
+      </ul>
+      
+      <ul class="volume">
+        <li><a onclick="muteVideo();" href="javascript:void(0);" title="Sound Off">Mute</a></li>
+        <li><a onclick="unMuteVideo();" href="javascript:void(0);" title="Sound On">Unmute</a></li>
+      </ul>
+    
+      <div class="video">
+        <div id="video-holder">
+          <p>You will need Flash 8 or better to view this content.</p>
+        </div>
+			<!--<div class="tab-content">
+          <div class="tab-pane active" id="rock">
+            <div id="rock-video">
+              vid1
+            </div>
+          </div>
+          <div class="tab-pane" id="solo">
+            <div id="solo-video">
+              vid2
+            </div>
+          </div>
+        </div>-->
+      </div>
+    </section>
+ 				 
+    <footer>
+      <div class="footer">
+        <div class="footer-content">
+          <ul class="connect">
+             <li><a href="http://www.youtube.com/user/jacksonmusicman"><img src="img/youtube.png" alt="YouTube" /></a></li>
+             <li><a href="https://soundcloud.com/philjacksonmusic"><img src="img/soundcloud.png" alt="Soundcloud" /></a></li>
+             <li><a href="https://itunes.apple.com/gb/album/sandy-sessions-live/id792750308"><img src="img/itunes.png" alt="iTunes" /></a></li>
+             <li><a href="http://www.musicglue.com/oh-mercy-records/"><img src="img/musicglue.png" alt="musicglue" /></a></li>
+             <li><a href="http://www.bgoodes.com/"><img src="img/bgoodes.png" alt="The B Goodes" /></a></li>
+             <li><a href="https://www.facebook.com/PhilJacksonMusic"><img src="img/f.png" alt="Facebook" /></a></li>
+             <li><a href="https://twitter.com/PhilActionJack"><img src="img/twitter.png" alt="Twitter" /></a></li>
+             <li><a href="mailto:pjsongsmith@hotmail.co.uk"><img src="img/email.png" alt="Email" /></a></li>
+          </ul>
+          <a id="tuition" class="card" href="https://sites.google.com/site/pianotuitionandperformance/">Piano Tuition Available!</a>
+          <a class="credit" title="web design" href="http://www.mintcanary.com/">
+            Crafted by <br />Mint Canary
+          </a>      
+        </div>
+      </div>
+    </footer>
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" ></script>
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
+    
+    <script>
+		  $('.rocktab a[data-toggle="tab"]').on('show', function (e) {
+				$("body.solo").removeClass("solo").addClass("rock");
+				$("body").addClass("channel");
+		  })
+			$('.solotab a[data-toggle="tab"]').on('show', function (e) {
+				$("body.rock").removeClass("rock").addClass("solo");
+				$("body").addClass("channel");
+		  });
+			
+			//video
+			google.load("swfobject", "2.1");
+			function onYouTubePlayerReady(playerId) {
+					ytplayer = document.getElementById("myvideo");
+					ytplayer.loadVideoById('qQ8AdQsHHcI');
+					ytplayer.playVideo();
+			}
+			var params = {
+					allowScriptAccess: "always"
+			};
+			var atts = {
+					id: "myvideo"
+			};
+			swfobject.embedSWF("http://www.youtube.com/apiplayer?enablejsapi=1&playerapiid=ytplayer",
+			"video-holder", "606", "340", "8", null, null, params, atts);
+			
+			
+			function load(id) {
+					if (ytplayer) {
+							ytplayer.loadVideoById(id);
+					}
+			}
+			
+			function muteVideo() {
+				if(ytplayer) {
+					ytplayer.mute();
+					$("body").addClass("mute");
+				}
+			}
+			
+			function unMuteVideo() {
+				if(ytplayer) {
+					ytplayer.unMute();
+					$("body").removeClass("mute");
+				}
+			}
+		</script>
+    
+  </body>
+</html>
