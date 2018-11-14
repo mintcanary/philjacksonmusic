@@ -33,11 +33,15 @@
         </div>
       </header>
 
+      <a class="alert" href="https://philjackson.bandcamp.com/track/christmas-in-the-habit-charity-single" target="_blank">
+        <span>Download the single and donate to <em>Prostate Cancer Uk</em> &amp; <em>Crisis</em> here</span>
+      </a>
+
     	<img class="choose" src="img/choose.png" alt="Choose your channel" />
 
       <ul class="dial">
-        <li class="rocktab"><a href="#rock" onclick="player.loadVideoById('cBh-WqlQ0JU');" data-toggle="tab">Rock n Roll</a></li>
-        <li class="solotab"><a href="#solo" onclick="player.loadVideoById('-Ux_arcXV-s');" data-toggle="tab">Solo</a></li>
+        <li class="rocktab"><a href="#rock" onclick="player.loadVideoById('cBh-WqlQ0JU'); channel = 'rock'; videoCount = 1" data-toggle="tab">Rock n Roll</a></li>
+        <li class="solotab"><a href="#solo" onclick="player.loadVideoById('-Ux_arcXV-s'); channel = 'solo'; videoCount = 1" data-toggle="tab">Solo</a></li>
       </ul>
 
       <ul class="volume">
@@ -77,6 +81,11 @@
     <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>
 
     <script>
+
+      var channel = 'solo';
+      var totalVideos = 2;
+      var videoCount = 0;
+
       // Video
       // This code loads the IFrame Player API code asynchronously.
       var tag = document.createElement('script');
@@ -91,10 +100,11 @@
         player = new YT.Player('player', {
           height: '340',
           width: '606',
-          videoId: '-Ux_arcXV-s',
+          videoId: '1MFzHCR1yWg',
           playerVars: { 'autoplay': 1, 'controls': 0, 'rel': 0  },
           events: {
             'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
           }
         });
       }
@@ -102,6 +112,22 @@
       // The API will call this function when the video player is ready.
       function onPlayerReady(event) {
         event.target.playVideo();
+      }
+
+      // when video ends
+      function onPlayerStateChange(event) {
+        if(event.data === 0) {
+          videoCount++;
+          console.log(videoCount);
+
+          if (videoCount < totalVideos) {
+            if (channel == 'solo') {
+              player.loadVideoById('-Ux_arcXV-s');
+            } else {
+              player.loadVideoById('cBh-WqlQ0JU');
+            }
+          }
+        }
       }
 
 

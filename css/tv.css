@@ -77,6 +77,40 @@ h1 {
 	margin-left:-395px;
 }
 
+.alert,
+.alert:hover,
+.alert:active,
+.alert:visited {
+	background-color: #ff4a03;
+	color: #fff;
+	border: none;
+	text-shadow: none;
+	display: block;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-weight: bold;
+	text-align: center;
+}
+@media (min-width: 768px) {
+	.alert,
+	.alert:hover,
+	.alert:active,
+	.alert:visited {
+		display: flex;
+		align-items: center;
+		padding: 25px;
+		position: absolute;
+		width: 145px;
+		height: 145px;
+		left: 50%;
+		bottom: 244px;
+		margin-left: 235px;
+		border-radius: 50%;
+		box-shadow: 6px 6px 14px 0px rgba(0,0,0,0.57);
+		transform: rotate(-8deg);
+	}
+}
+
 .choose {
 	position:absolute;
 	left:50%;
