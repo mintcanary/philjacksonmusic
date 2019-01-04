@@ -8,10 +8,8 @@
     <meta name="author" content="">
 
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-
-    <!-- Le styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/tv.css" />
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/tv.css">
     <!--[if lt IE 10]>
       <link rel="stylesheet" type="text/css" href="css/ie9.css" />
     <![endif]-->
@@ -28,8 +26,11 @@
     <section>
       <header>
         <div class="logo">
-          <h1>Phil Jackson</h1>
-          <p>Singer/Songwriter &middot; Rock N Roll Performer</p>
+          
+  <h1>Phil Jackson</h1>
+  <p>Singer/Songwriter &middot; Rock N Roll Performer</p>
+
+
         </div>
       </header>
 
@@ -37,7 +38,7 @@
         <span>Download the single and donate to <em>Prostate Cancer Uk</em> &amp; <em>Crisis</em> here</span>
       </a>
 
-    	<img class="choose" src="img/choose.png" alt="Choose your channel" />
+      <img class="choose" src="img/choose.png" alt="Choose your channel" />
 
       <ul class="dial">
         <li class="rocktab"><a href="#rock" onclick="player.loadVideoById('cBh-WqlQ0JU'); channel = 'rock'; videoCount = 1" data-toggle="tab">Rock n Roll</a></li>
@@ -133,13 +134,13 @@
 
       // Controls
       $('.rocktab a[data-toggle="tab"]').on('show', function (e) {
-				$("body.solo").removeClass("solo").addClass("rock");
-				$("body").addClass("channel");
-		  })
-			$('.solotab a[data-toggle="tab"]').on('show', function (e) {
-				$("body.rock").removeClass("rock").addClass("solo");
-				$("body").addClass("channel");
-		  });
+        $("body.solo").removeClass("solo").addClass("rock");
+        $("body").addClass("channel");
+      })
+      $('.solotab a[data-toggle="tab"]').on('show', function (e) {
+        $("body.rock").removeClass("rock").addClass("solo");
+        $("body").addClass("channel");
+      });
 
     </script>
 
