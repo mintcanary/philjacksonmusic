@@ -1,0 +1,6 @@
+[project]
+name = pjmusic
+
+[servers.ghpages]
+default = yes
+target = ghpages://philjacksonweb/philjacksonmusic?cname=www.philjacksonmusic.com
